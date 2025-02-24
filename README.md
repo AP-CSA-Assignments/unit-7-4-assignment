@@ -1,4 +1,4 @@
-# unit-7-3-assignment
+# unit-7-4-assignment
 
 ## Git Config
 ```
@@ -23,27 +23,63 @@ After you compile the shape classes, you only need to compile and run `Main.java
 # Instructions  
 
 ## Problem 1
-Write a public static void method named `shiftLeft` which takes a single parameter of an `ArrayList` of `String` objects. The method should shift every element of the parameter `ArrayList` one position to the left, and move the first element of the list into the last position.
+Implement the method `countSecondInitial` which accepts as parameters an `ArrayList` of `Strings` and a letter, stored in a `String`. (Precondition: the `String` variable `letter` has only one character. You do not need to check for this.) The method should return the number of `Strings` in the input `ArrayList` that has the target `letter` as the second letter in the word.
 
-For example, if the parameter list passed to the method initially prints as `[dogs, monkeys, cats]`, this would become `[monkey, cats, dogs]` after the method is executed.
+In the sample run below, we look for the letter `"i"`, and get the number 3, since the words `"find"`, `"dice"`, and `"hi"` all have the letter `"i"` as the second letter in those words.
 
-**Hint:** think about which built in `ArrayList` methods can cause multiple elements to shift when they are called.
+Sample Run:
+```
+Please enter words, enter STOP to stop the loop.
+find
+dice
+hi
+dye
+STOP
+Enter the letter to search for
+i
+Search for i: 3
+```
+Hint - the algorithm to implement this method is just a modified version of the linear search algorithm.
 
 ## Problem 2
-Write a public static void method named `printStatistics` which takes a single parameter of an `ArrayList` of `Integer` objects. The method should print the `Sum`, `Average` and `Mode` of the integers in the parameter `ArrayList`. If there is more than one mode (i.e. two or more values appear equal numbers of times and no values appear more often), the method should print "no single mode".
+Write a public static method named `searchSecond` which implements a modified version of the linear search algorithm on an `ArrayList` of `String` objects. Instead of returning the index of the first appearance of the target `String` in the `ArrayList` your method should return the index of the second appearance of this String. If the target `String` is not in the `ArrayList` or only appears once, your method should return -1.
 
-For example, if the `ArrayList` parameter prints as `[2, 5, 7, 5]` the `printStatistics` method should produce the following output:
+Sample Run 1: 
 ```
-Sum: 19
-Average: 4.75
-Mode: 5
+Please enter words, enter STOP to stop the loop.
+apple
+bird
+cat
+apple
+apple
+STOP
+Enter String to search for.
+apple
+searchSecond returns: 3
 ```
-Alternatively if the ArrayList parameter prints as `[1, 5, 9, 5, 1]` the `printStatistics` method should produce the following output:
+Sample Run 2:
 ```
-Sum: 21
-Average: 4.2
-Mode: no single mode
+Please enter words, enter STOP to stop the loop.
+apple
+bird
+apple
+cat
+apple
+STOP
+Enter String to search for.
+bird
+searchSecond returns: -1 
 ```
-
-**Hint:** The way Mr. Vu would initially approach the mode portion of the problem, is to create a boolean variable, `uniqueMode`, and initialize it to false.  If a new mode is found (as in, you found a number that appears the most times), then `uniqueMode` is set to true.  If *another* mode is found (as in, you found a *different* number that appears the most number of times), then `uniqueMode` gets reset to false.
-  
+Sample Run 3:
+```
+Please enter words, enter STOP to stop the loop.
+apple
+bird
+apple
+cat
+apple
+STOP
+Enter String to search for.
+dog
+searchSecond returns: -1
+```
